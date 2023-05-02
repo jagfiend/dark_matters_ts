@@ -1,7 +1,7 @@
 enum Settings {
-    FPS_LIMIT = 24,
-    SCREEN_HEIGHT = window.innerHeight - 20,
-    SCREEN_WIDTH = window.innerWidth - 20,
+    FPS_LIMIT = 30,
+    SCREEN_HEIGHT = 600,
+    SCREEN_WIDTH = 600,
 }
 
 export default Settings
