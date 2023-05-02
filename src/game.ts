@@ -1,9 +1,9 @@
 import Player from "./player";
 
 export default class Game {
-    public width: number;
-    public height: number;
-    public player: Player
+    readonly width: number;
+    readonly height: number;
+    readonly player: Player
 
     constructor(width: number, height: number) {
         this.width = width
@@ -11,7 +11,7 @@ export default class Game {
         this.player = new Player(this)
     }
 
-    update () {
+    update (deltaTime: number) {
         this.player.update()
     }
 

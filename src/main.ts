@@ -1,27 +1,28 @@
 import './style.css'
+import { clear } from './drawing'
+import Settings from './settings'
 import Game from './game'
 
 window.addEventListener('load', function () {
     const canvas: HTMLElement | null = document.getElementById('game')
     // @ts-ignore
-    canvas.height = 600
+    canvas.width = Settings.SCREEN_WIDTH
     // @ts-ignore
-    canvas.width = 600
+    canvas.height = Settings.SCREEN_HEIGHT
     // @ts-ignore
     const ctx: CanvasRenderingContext2D = canvas.getContext('2d')
-    // @ts-ignore
-    const game = new Game(canvas.width, canvas.height)
+    const game = new Game(Settings.SCREEN_WIDTH, Settings.SCREEN_HEIGHT)
 
-    function animate() {
-        // @ts-ignore
-        ctx.clearRect(0,0, canvas.width, canvas.height)
-        game.update()
+    let lastTime: number = 0
+
+    function animate(timestamp: number) {
+        let deltaTime = timestamp - lastTime
+        lastTime = timestamp
+        clear(ctx)
+        game.update(deltaTime)
         game.draw(ctx)
         requestAnimationFrame(animate)
     }
 
-    animate()
+    animate(0)
 })
-
-
-
