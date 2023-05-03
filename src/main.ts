@@ -24,9 +24,9 @@ window.addEventListener('load', function () {
         };
 
         if (game.ammo > 0 && clickPos.y < 450) {
-            game.targets.push(new Target(clickPos.x, clickPos.y));
-            game.playerProjectiles.push(new Projectile(300, 500));
-            game.ammo--;
+            game.targets.push(new Target(clickPos.x, clickPos.y))
+            game.playerProjectiles.push(new Projectile(300, 500))
+            game.ammo--
         }
     })
 
@@ -37,14 +37,12 @@ window.addEventListener('load', function () {
         lastTime = timestamp
 
         if (game.isDead) {
-            alert("Game over, you scored: " + game.score);
-            return;
+            alert("Game over, you scored: " + game.score)
+            return
         }
 
-        game.counter++
-
         clear(ctx)
-        game.update()
+        game.update(deltaTime)
         game.draw(ctx)
         requestAnimationFrame(animate)
     }

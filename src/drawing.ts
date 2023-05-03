@@ -1,5 +1,6 @@
 import Settings from "./settings"
 import {Colony, Explosion, Projectile, Target} from "./objects";
+import Colours from "./colours";
 
 export function clear(context: CanvasRenderingContext2D) {
     context.clearRect(0,0, Settings.SCREEN_WIDTH, Settings.SCREEN_WIDTH)
@@ -84,7 +85,7 @@ export function drawColonies(context: CanvasRenderingContext2D, colonies: Colony
 export function drawTargets(context: CanvasRenderingContext2D, targets: Target[]) {
     targets.map((target) => {
         context.lineWidth = 3
-        context.strokeStyle = '#ffff24'
+        context.strokeStyle = Colours.YELLOW
 
         context.beginPath()
         context.arc(target.x, target.y, 15, 1.05 * Math.PI, 1.45 * Math.PI, false)
@@ -124,7 +125,7 @@ export function drawCircles(
 export function drawUI(context: CanvasRenderingContext2D, wave: number, score: number, ammo: number) {
     context.font = "16px Arial"
     context.textAlign = "center"
-    context.fillStyle = "#ffff24"
+    context.fillStyle = Colours.YELLOW
     context.fillText("Wave", 100, 30)
     context.fillText(String(wave), 100, 50)
     context.fillText("Score", 500, 30)
